@@ -14,16 +14,18 @@ class Patient
 {
 private:
 	string m_name;
-	char sex;
+	char m_sex;
 	Date m_dateOfBirth;
-	string address;
-	uint64_t social;
-	uint64_t id;
-	string phone;
-	unique_ptr<PillCard> m_pillCard;
+	string m_address;
+	uint64_t m_social;
+	uint64_t m_id;
+	string m_phone;
+	unique_ptr<PillCard> m_pillCard = make_unique<PillCard>();
 
 public:
 	Patient()=default;
 	~Patient()=default;
+
+	friend ostream& operator<< (ostream& os, const Patient& p);
 };
 

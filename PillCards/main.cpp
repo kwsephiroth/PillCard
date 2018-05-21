@@ -1,12 +1,12 @@
 #include <iostream>
-#include "Drug.h"
+#include "Patient.h"
 
 using namespace std;
 
 int main(int argc, char* argv[])
 {
-	Drug d;
-	cout << d << endl << d << endl;
+	Patient p;
+	cout << p << endl;
 
 	system("pause");
 	return 0;

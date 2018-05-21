@@ -2,7 +2,6 @@
 #include "Enums.h"
 #include "Helpers.h"
 #include <string>
-#include <ostream>
 #include <stdint.h>
 
 using namespace std;
