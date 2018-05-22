@@ -25,4 +25,3 @@ public:
 
 	friend ostream& operator<< (ostream& os, const PillCard& pc);
 };
-

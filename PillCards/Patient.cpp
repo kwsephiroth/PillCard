@@ -13,3 +13,47 @@ ostream& operator<< (ostream& os, const Patient& p)
 
 	return os;
 }
+
+Patient::Patient(Patient&& other)//Move constructor
+{
+	this->m_pillCard = move(other.m_pillCard);
+	this->m_name = other.m_name;
+	this->m_sex = other.m_sex;
+	this->m_dateOfBirth = other.m_dateOfBirth;
+	this->m_address = other.m_address;
+	this->m_social = other.m_social;
+	this->m_id = other.m_id;
+	this->m_phone = other.m_phone;
+
+	other.m_pillCard = nullptr;
+	other.m_name = "";
+	other.m_sex = '\0';
+	other.m_dateOfBirth.day = 0; other.m_dateOfBirth.month = 0; other.m_dateOfBirth.year = 0;
+	other.m_social = 0;
+	other.m_id = 0;
+	other.m_phone = "";
+}
+
+Patient& Patient::operator=(Patient&& other)//Move assignment operator
+{
+	if (this != &other)//Not copying from same object pointers
+	{
+		this->m_pillCard = move(other.m_pillCard);
+		this->m_name = other.m_name;
+		this->m_sex = other.m_sex;
+		this->m_dateOfBirth = other.m_dateOfBirth;
+		this->m_address = other.m_address;
+		this->m_social = other.m_social;
+		this->m_id = other.m_id;
+		this->m_phone = other.m_phone;
+
+		other.m_pillCard = nullptr;
+		other.m_name = "";
+		other.m_sex = '\0';
+		other.m_dateOfBirth.day = 0; other.m_dateOfBirth.month = 0; other.m_dateOfBirth.year = 0;
+		other.m_social = 0;
+		other.m_id = 0;
+		other.m_phone = "";
+	}
+	return *this;
+}

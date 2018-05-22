@@ -26,6 +26,14 @@ public:
 	Patient()=default;
 	~Patient()=default;
 
+	//Disable copying
+	Patient(const Patient&) = delete;
+	Patient& operator=(const Patient&) = delete;
+
+	//Move constructor and assignment operator
+	Patient(Patient&&);
+	Patient& operator=(Patient&&);
+
 	friend ostream& operator<< (ostream& os, const Patient& p);
 };
 
