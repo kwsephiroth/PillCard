@@ -11,7 +11,7 @@ string GetUnitOfMeasurementString(const UnitOfMeasurement unit)
 	switch (unit)
 	{
 	case UnitOfMeasurement::Gram:
-		unitStr = "grams";
+		unitStr = "g";
 		break;
 	case UnitOfMeasurement::Microgram:
 		unitStr = "micrograms";
