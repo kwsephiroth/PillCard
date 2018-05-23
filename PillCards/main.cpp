@@ -1,4 +1,5 @@
 #include <iostream>
+#include "PatientManager.h"
 #include "Patient.h"
 
 using namespace std;
