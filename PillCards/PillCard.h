@@ -23,5 +23,14 @@ public:
 	//PillCard() = default;
 	~PillCard()=default;
 
+	//Disable copying
+	PillCard(const PillCard&) = delete;
+	PillCard& operator=(const PillCard&) = delete;
+
+	//Move constructor and assignment operator
+	PillCard(PillCard&&);
+	PillCard& operator=(PillCard&&);
+
+
 	friend ostream& operator<< (ostream& os, const PillCard& pc);
 };
