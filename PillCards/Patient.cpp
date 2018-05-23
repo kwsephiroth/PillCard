@@ -16,13 +16,13 @@ ostream& operator<< (ostream& os, const Patient& p)
 
 Patient::Patient(Patient&& other)//Move constructor
 {
+	this->m_id = other.m_id;
 	this->m_pillCard = move(other.m_pillCard);
 	this->m_name = other.m_name;
 	this->m_sex = other.m_sex;
 	this->m_dateOfBirth = other.m_dateOfBirth;
 	this->m_address = other.m_address;
 	this->m_social = other.m_social;
-	this->m_id = other.m_id;
 	this->m_phone = other.m_phone;
 
 	other.m_pillCard = nullptr;
@@ -38,13 +38,13 @@ Patient& Patient::operator=(Patient&& other)//Move assignment operator
 {
 	if (this != &other)//Not copying from same object pointers
 	{
+		this->m_id = other.m_id;
 		this->m_pillCard = move(other.m_pillCard);
 		this->m_name = other.m_name;
 		this->m_sex = other.m_sex;
 		this->m_dateOfBirth = other.m_dateOfBirth;
 		this->m_address = other.m_address;
 		this->m_social = other.m_social;
-		this->m_id = other.m_id;
 		this->m_phone = other.m_phone;
 
 		other.m_pillCard = nullptr;

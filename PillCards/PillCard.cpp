@@ -11,6 +11,30 @@ ostream& operator<< (ostream& os, const PillCard& pc)
 	{
 		cout << *it->second << endl;
 	}
-		
+
 	return os;
+}
+
+PillCard::PillCard(PillCard&& other)
+{
+	for (auto itr = other.m_drugs.begin(); itr != other.m_drugs.end(); ++itr)
+	{
+		this->m_drugs.emplace(itr->first, move(itr->second));
+	}
+
+	other.m_drugs.clear();
+}
+
+PillCard& PillCard::operator=(PillCard&& other)
+{
+	if (this != &other)
+	{
+		for (auto itr = other.m_drugs.begin(); itr != other.m_drugs.end(); ++itr)
+		{
+			this->m_drugs.emplace(itr->first, move(itr->second));
+		}
+
+		other.m_drugs.clear();
+	}
+	return *this;
 }
