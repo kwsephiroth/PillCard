@@ -11,11 +11,11 @@
 
 using namespace std;
 
-using Drugs = map<uint64_t, unique_ptr<Drug>>;
-
 class PillCard
 {
 private:
+	using Drugs = map<uint64_t, unique_ptr<Drug>>;
+
 	Drugs m_drugs = {};
 
 public:

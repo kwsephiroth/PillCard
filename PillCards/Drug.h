@@ -6,11 +6,11 @@
 
 using namespace std;
 
-using Strength = pair<uint32_t, UnitOfMeasurement>;
-
 class Drug
 {
 private:
+	using Strength = pair<uint32_t, UnitOfMeasurement>;
+
 	uint64_t m_applNo;
 	string m_name;
 	Strength m_strength = make_pair<uint32_t, UnitOfMeasurement>(0, UnitOfMeasurement::Milligram);
