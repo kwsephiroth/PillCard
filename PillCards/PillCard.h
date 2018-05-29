@@ -31,6 +31,7 @@ public:
 	PillCard(PillCard&&);
 	PillCard& operator=(PillCard&&);
 
+	void AddDrug(const Drug&&);
 
 	friend ostream& operator<< (ostream& os, const PillCard& pc);
 };

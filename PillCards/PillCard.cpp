@@ -25,6 +25,12 @@ PillCard::PillCard(PillCard&& other)
 	other.m_drugs.clear();
 }
 
+
+void PillCard::AddDrug(const Drug&& d)
+{
+	this->m_drugs.emplace(d.GetApplNo(), make_unique<Drug>(d));
+}
+
 PillCard& PillCard::operator=(PillCard&& other)
 {
 	if (this != &other)

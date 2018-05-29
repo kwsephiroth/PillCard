@@ -2,13 +2,13 @@
 
 ostream& operator<< (ostream& os, const Patient& p)
 {
-	os << "Patient Name: " << p.m_name << "\n"
-		<< "Sex: " << p.m_sex << "\n"
-		<< "Date Of Birth: " << p.m_dateOfBirth.month << "/" << p.m_dateOfBirth.day << "/" << p.m_dateOfBirth.year << "\n"
-		<< "Social: " << p.m_social << "\n"
-		<< "Identification: " << p.m_id << "\n"
-		<< "Address: " << p.m_address << "\n"
-		<< "Phone: " << p.m_phone << "\n\n"
+	os << "Patient Name: " << p.m_patientInfo.name << "\n"
+		<< "Sex: " << p.m_patientInfo.sex << "\n"
+		<< "Date Of Birth: " << p.m_patientInfo.dateOfBirth.month << "/" << p.m_patientInfo.dateOfBirth.day << "/" << p.m_patientInfo.dateOfBirth.year << "\n"
+		<< "Social: " << p.m_patientInfo.social << "\n"
+		<< "Identification: " << p.m_patientInfo.id << "\n"
+		<< "Address: " << p.m_patientInfo.address << "\n"
+		<< "Phone: " << p.m_patientInfo.phone << "\n\n"
 		<< *p.m_pillCard;
 
 	return os;
@@ -16,44 +16,44 @@ ostream& operator<< (ostream& os, const Patient& p)
 
 Patient::Patient(Patient&& other)//Move constructor
 {
-	this->m_id = other.m_id;
+	this->m_patientInfo.id = other.m_patientInfo.id;
 	this->m_pillCard = move(other.m_pillCard);
-	this->m_name = other.m_name;
-	this->m_sex = other.m_sex;
-	this->m_dateOfBirth = other.m_dateOfBirth;
-	this->m_address = other.m_address;
-	this->m_social = other.m_social;
-	this->m_phone = other.m_phone;
+	this->m_patientInfo.name = other.m_patientInfo.name;
+	this->m_patientInfo.sex = other.m_patientInfo.sex;
+	this->m_patientInfo.dateOfBirth = other.m_patientInfo.dateOfBirth;
+	this->m_patientInfo.address = other.m_patientInfo.address;
+	this->m_patientInfo.social = other.m_patientInfo.social;
+	this->m_patientInfo.phone = other.m_patientInfo.phone;
 
 	other.m_pillCard = nullptr;
-	other.m_name = "";
-	other.m_sex = '\0';
-	other.m_dateOfBirth.day = 0; other.m_dateOfBirth.month = 0; other.m_dateOfBirth.year = 0;
-	other.m_social = 0;
-	other.m_id = 0;
-	other.m_phone = "";
+	other.m_patientInfo.name = "";
+	other.m_patientInfo.sex = '\0';
+	other.m_patientInfo.dateOfBirth.day = 0; other.m_patientInfo.dateOfBirth.month = 0; other.m_patientInfo.dateOfBirth.year = 0;
+	other.m_patientInfo.social = 0;
+	other.m_patientInfo.id = 0;
+	other.m_patientInfo.phone = "";
 }
 
 Patient& Patient::operator=(Patient&& other)//Move assignment operator
 {
 	if (this != &other)//Not copying from same object pointers
 	{
-		this->m_id = other.m_id;
+		this->m_patientInfo.id = other.m_patientInfo.id;
 		this->m_pillCard = move(other.m_pillCard);
-		this->m_name = other.m_name;
-		this->m_sex = other.m_sex;
-		this->m_dateOfBirth = other.m_dateOfBirth;
-		this->m_address = other.m_address;
-		this->m_social = other.m_social;
-		this->m_phone = other.m_phone;
+		this->m_patientInfo.name = other.m_patientInfo.name;
+		this->m_patientInfo.sex = other.m_patientInfo.sex;
+		this->m_patientInfo.dateOfBirth = other.m_patientInfo.dateOfBirth;
+		this->m_patientInfo.address = other.m_patientInfo.address;
+		this->m_patientInfo.social = other.m_patientInfo.social;
+		this->m_patientInfo.phone = other.m_patientInfo.phone;
 
 		other.m_pillCard = nullptr;
-		other.m_name = "";
-		other.m_sex = '\0';
-		other.m_dateOfBirth.day = 0; other.m_dateOfBirth.month = 0; other.m_dateOfBirth.year = 0;
-		other.m_social = 0;
-		other.m_id = 0;
-		other.m_phone = "";
+		other.m_patientInfo.name = "";
+		other.m_patientInfo.sex = '\0';
+		other.m_patientInfo.dateOfBirth.day = 0; other.m_patientInfo.dateOfBirth.month = 0; other.m_patientInfo.dateOfBirth.year = 0;
+		other.m_patientInfo.social = 0;
+		other.m_patientInfo.id = 0;
+		other.m_patientInfo.phone = "";
 	}
 	return *this;
 }
