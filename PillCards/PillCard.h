@@ -31,7 +31,9 @@ public:
 	PillCard(PillCard&&);
 	PillCard& operator=(PillCard&&);
 
-	void AddDrug(const Drug&&);
+	void AddDrug(Drug&&);
+	const Drug& GetDrug(uint64_t applNo) const;
+	const Drugs& GetDrugList() const { return this->m_drugs; }
 
 	friend ostream& operator<< (ostream& os, const PillCard& pc);
 };

@@ -26,7 +26,7 @@ PillCard::PillCard(PillCard&& other)
 }
 
 
-void PillCard::AddDrug(const Drug&& d)
+void PillCard::AddDrug(Drug&& d)
 {
 	this->m_drugs.emplace(d.GetApplNo(), make_unique<Drug>(d));
 }
