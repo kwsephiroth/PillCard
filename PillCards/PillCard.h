@@ -15,12 +15,11 @@ class PillCard
 {
 private:
 	using Drugs = map<uint64_t, unique_ptr<Drug>>;
-
 	Drugs m_drugs = {};
 
 public:
-	PillCard() { m_drugs.emplace(0, make_unique<Drug>()); m_drugs.emplace(1, make_unique<Drug>());};
-	//PillCard() = default;
+	//PillCard() { m_drugs.emplace(0, make_unique<Drug>()); m_drugs.emplace(1, make_unique<Drug>());};
+	PillCard() = default;
 	~PillCard()=default;
 
 	//Disable copying
@@ -32,6 +31,7 @@ public:
 	PillCard& operator=(PillCard&&);
 
 	void AddDrug(Drug&&);
+	void RemoveDrug(uint64_t);//TODO: Implement way to remove drug from map. Also, determine if application number is even a good key.
 	const Drug& GetDrug(uint64_t applNo) const;
 	const Drugs& GetDrugList() const { return this->m_drugs; }
 

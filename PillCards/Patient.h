@@ -21,10 +21,10 @@ private:
 	//uint64_t m_social;
 	//string m_phone;//TODO: Create struct of integers for phone number??
 	PatientInfo m_patientInfo;
-	unique_ptr<PillCard> m_pillCard = make_unique<PillCard>();
+	unique_ptr<PillCard> m_pillCard;
 
 public:
-	Patient()=default;
+	Patient(const PatientInfo info, PillCard&& card) : m_patientInfo(info), m_pillCard(make_unique<PillCard>(forward<PillCard>(card))) {}
 	~Patient()=default;
 
 	//Disable copying
@@ -36,14 +36,14 @@ public:
 	Patient& operator=(Patient&&);
 
 	//Getters
-	uint64_t GetId() const { return m_patientInfo.id; }
-	string GetName() const { return m_patientInfo.name; }
-	char GetSex() const { return m_patientInfo.sex; }
-	Date GetDateOfBirth() const { return m_patientInfo.dateOfBirth; }
-	string GetAddress() const { return m_patientInfo.address; }
-	uint64_t GetSocial() const { return m_patientInfo.social; }
-	string GetPhone() const { return m_patientInfo.phone; }
-	//Get() const {}
+	uint64_t GetId() const { return this->m_patientInfo.id; }
+	string GetName() const { return this->m_patientInfo.name; }
+	char GetSex() const { return this->m_patientInfo.sex; }
+	Date GetDateOfBirth() const { return this->m_patientInfo.dateOfBirth; }
+	string GetAddress() const { return this->m_patientInfo.address; }
+	uint64_t GetSocial() const { return this->m_patientInfo.social; }
+	string GetPhone() const { return this->m_patientInfo.phone; }
+	const PillCard& GetPillCard() const { return *this->m_pillCard; }
 
 	friend ostream& operator<< (ostream& os, const Patient& p);
 };

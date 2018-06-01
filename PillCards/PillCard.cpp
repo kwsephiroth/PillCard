@@ -11,7 +11,7 @@ ostream& operator<< (ostream& os, const PillCard& pc)
 	{
 		cout << *it->second << endl;
 	}
-
+	os << "---------------\n";
 	return os;
 }
 

@@ -10,16 +10,16 @@
 #include <memory>
 #include <map>
 
-using PatientList = map<uint64_t, unique_ptr<Patient>>;
-
 class PatientManager
 {
 private:
+	using PatientList = map<uint64_t, unique_ptr<Patient>>;
 	PatientList m_listOfPatients;
 
 public:
 	PatientManager()=default;
 	~PatientManager()=default;
-	void AddNewPatient(const Patient&);
+	void AddNewPatient(Patient&&);
+	const Patient& GetPatient(uint64_t patientId) const;
 };
 

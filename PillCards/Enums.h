@@ -10,6 +10,7 @@ enum class UnitOfMeasurement
 
 enum class TimeOfDay
 {
+	Any,
 	Morning,
 	Noon,
 	Night

@@ -38,6 +38,9 @@ string GetTimeOfDayString(const TimeOfDay tod)
 
 	switch (tod)
 	{
+	case TimeOfDay::Any:
+		todStr = "";
+		break;
 	case TimeOfDay::Morning:
 		todStr = "Morning";
 		break;

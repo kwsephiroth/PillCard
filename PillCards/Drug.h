@@ -19,8 +19,26 @@ private:
 	TimeOfDay m_timeOfDay;
 	string m_additionalInfo;
 
+	//TODO: Create DrugInfo struct???
+
 public:
-	Drug()=default;
+	Drug(uint64_t applNo,
+		string name,
+		Strength strength,
+		string purpose,
+		string directions,
+		TimeOfDay timeOfDay,
+		string additionalInfo = "")
+	{
+		m_applNo = applNo;
+		m_name = name;
+		m_strength = strength;
+		m_purpose = purpose;
+		m_directions = directions;
+		m_timeOfDay = timeOfDay;
+		m_additionalInfo = additionalInfo;
+	}
+	//Drug()=default;
 	~Drug()=default;
 
 	uint64_t GetApplNo() const { return this->m_applNo; }
@@ -33,4 +51,3 @@ public:
 
 	friend ostream& operator<< (ostream& os, const Drug& pc);
 };
-
