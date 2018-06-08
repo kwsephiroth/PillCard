@@ -10,9 +10,9 @@ void PatientManager::AddNewPatient(Patient&& p)
 const Patient& PatientManager::GetPatient(uint64_t patientId) const
 {
 	auto itr = this->m_listOfPatients.find(patientId);
-	//if (itr != this->m_listOfPatients.end())
+	if (itr != this->m_listOfPatients.end())
 		return *itr->second;
-	//else
-		//blank patient
+	else
+		return BLANKPATIENT;
 	//TODO: Figure out how to signal that the patient wasn't found
 }

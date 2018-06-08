@@ -2,8 +2,6 @@
 #include "PatientManager.h"
 #include "Patient.h"
 
-using namespace std;
-
 int main(int argc, char* argv[])
 {
 	//Patient p;
@@ -18,7 +16,11 @@ int main(int argc, char* argv[])
 	pm.AddNewPatient(move(p));
 	//cout << p << endl; //Should be empty since it has been moved
 	auto& patient1 = pm.GetPatient(1);
-	cout << patient1 << endl;
+	std::cout << patient1 << std::endl;
+
+	auto& patient2 = pm.GetPatient(2);
+	if(patient2.GetId() > 0)
+		std::cout << patient2 << std::endl;
 
 	system("pause");
 	return 0;

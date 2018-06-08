@@ -2,7 +2,5 @@
 #include "Enums.h"
 #include <string>
 
-using namespace std;
-
-string GetUnitOfMeasurementString(const UnitOfMeasurement unit);
-string GetTimeOfDayString(const TimeOfDay tod);
+std::string GetUnitOfMeasurementString(const UnitOfMeasurement unit);
+std::string GetTimeOfDayString(const TimeOfDay tod);

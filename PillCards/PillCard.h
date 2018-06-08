@@ -9,8 +9,6 @@
 #include <memory>
 #include <iostream>
 
-using namespace std;
-
 class PillCard
 {
 private:
@@ -18,9 +16,8 @@ private:
 	Drugs m_drugs = {};
 
 public:
-	//PillCard() { m_drugs.emplace(0, make_unique<Drug>()); m_drugs.emplace(1, make_unique<Drug>());};
 	PillCard() = default;
-	~PillCard()=default;
+	~PillCard() = default;
 
 	//Disable copying
 	PillCard(const PillCard&) = delete;

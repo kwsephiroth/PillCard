@@ -2,11 +2,9 @@
 
 #include <iostream>
 
-using namespace std;
-
-string GetUnitOfMeasurementString(const UnitOfMeasurement unit)
+std::string GetUnitOfMeasurementString(const UnitOfMeasurement unit)
 {
-	string unitStr;
+	std::string unitStr;
 
 	switch (unit)
 	{
@@ -32,9 +30,9 @@ string GetUnitOfMeasurementString(const UnitOfMeasurement unit)
 	return unitStr;
 }
 
-string GetTimeOfDayString(const TimeOfDay tod)
+std::string GetTimeOfDayString(const TimeOfDay tod)
 {
-	string todStr;
+	std::string todStr;
 
 	switch (tod)
 	{

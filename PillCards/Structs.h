@@ -1,5 +1,6 @@
 #pragma once
 #include <stdint.h>
+#include <string>
 
 struct Date
 {
@@ -11,12 +12,12 @@ struct Date
 struct PatientInfo
 {
 	uint64_t id;
-	string name;
+	std::string name;
 	char sex;
 	Date dateOfBirth;
-	string address;
+	std::string address;
 	uint64_t social;
-	string phone;
+	std::string phone;
 };
 
 struct PhoneNumber
