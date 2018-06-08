@@ -18,3 +18,17 @@ struct PatientInfo
 	uint64_t social;
 	string phone;
 };
+
+struct PhoneNumber
+{
+	uint16_t areaCode;//First 3 digits
+	uint16_t prefix;//Middle 3 digits
+	uint16_t lineNumber;//Last 4 digits
+};
+
+struct SocialSecurityNumber
+{
+	uint16_t area;//First 3 digits
+	uint16_t group;//Middle 2 digits
+	uint16_t serial;//Last 4 digits
+};
