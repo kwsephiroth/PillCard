@@ -23,7 +23,7 @@ private:
 
 public:
 	Patient(const PatientInfo info, PillCard&& card) : m_patientInfo(info), m_pillCard(make_unique<PillCard>(forward<PillCard>(card))) {}
-	Patient() = default;//TODO: Default constructor for creating a blank patient. Should I keep this?
+	Patient()=default;//TODO: Default constructor for creating a blank patient. Should I keep this?
 	~Patient()=default;
 
 	//Disable copying

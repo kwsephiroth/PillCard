@@ -17,11 +17,11 @@ private:
 	PatientList m_listOfPatients;
 
 public:
-	PatientManager() = default;
-	~PatientManager() = default;
+	PatientManager()=default;
+	~PatientManager()=default;
 	void AddNewPatient(Patient&&);
 	const Patient& GetPatient(uint64_t patientId) const;
 
-	const Patient BLANKPATIENT;
+	const Patient BLANKPATIENT = Patient();
 };
 
