@@ -12,7 +12,7 @@
 class PillCard
 {
 private:
-	using Drugs = map<uint64_t, unique_ptr<Drug>>;
+	using Drugs = std::map<uint64_t, std::unique_ptr<Drug>>;
 	Drugs m_drugs = {};
 
 public:
@@ -32,5 +32,5 @@ public:
 	const Drug& GetDrug(uint64_t applNo) const;
 	const Drugs& GetDrugList() const { return this->m_drugs; }
 
-	friend ostream& operator<< (ostream& os, const PillCard& pc);
+	friend std::ostream& operator<< (std::ostream& os, const PillCard& pc);
 };

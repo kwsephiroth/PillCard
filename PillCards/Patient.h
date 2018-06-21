@@ -18,11 +18,12 @@ private:
 	//string m_address;
 	//uint64_t m_social;
 	//string m_phone;//TODO: Create struct of integers for phone number??
+
 	PatientInfo m_patientInfo{ 0, "BLANK", ' ',{0,0,0},"", {0,0,0}, {0,0,0} };
-	unique_ptr<PillCard> m_pillCard = nullptr;
+	std::unique_ptr<PillCard> m_pillCard = nullptr;
 
 public:
-	Patient(const PatientInfo info, PillCard&& card) : m_patientInfo(info), m_pillCard(make_unique<PillCard>(forward<PillCard>(card))) {}
+	Patient(const PatientInfo info, PillCard&& card) : m_patientInfo(info), m_pillCard(std::make_unique<PillCard>(std::forward<PillCard>(card))) {}
 	Patient()=default;//TODO: Default constructor for creating a blank patient. Should I keep this?
 	~Patient()=default;
 
@@ -36,16 +37,16 @@ public:
 
 	//Getters
 	uint64_t GetId() const { return this->m_patientInfo.id; }
-	string GetName() const { return this->m_patientInfo.name; }
+	std::string GetName() const { return this->m_patientInfo.name; }
 	char GetSex() const { return this->m_patientInfo.sex; }
 	Date GetDateOfBirth() const { return this->m_patientInfo.dateOfBirth; }
-	string GetAddress() const { return this->m_patientInfo.address; }
+	std::string GetAddress() const { return this->m_patientInfo.address; }
 	SocialSecurityNumber GetSocial() const { return this->m_patientInfo.social; }
 	PhoneNumber GetPhone() const { return this->m_patientInfo.phone; }
 	const PillCard& GetPillCard() const { return *this->m_pillCard; }//TODO: Handle case where the pill card pointer is null
 
 	//static const Patient BLANK;
 
-	friend ostream& operator<< (ostream& os, const Patient& p);
+	friend std::ostream& operator<< (std::ostream& os, const Patient& p);
 };
 

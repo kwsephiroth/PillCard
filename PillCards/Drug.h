@@ -1,28 +1,27 @@
 #pragma once
 #include "Enums.h"
 #include "Helpers.h"
+#include "Structs.h"
 #include <string>
 #include <stdint.h>
-
-using namespace std;
 
 class Drug
 {
 private:
-	using Strength = pair<uint32_t, UnitOfMeasurement>;
+	using Strength = std::pair<uint32_t, UnitOfMeasurement>;
 
-	uint64_t m_applNo;
-	string m_name;
-	Strength m_strength = make_pair<uint32_t, UnitOfMeasurement>(0, UnitOfMeasurement::Milligram);
-	string m_purpose;
-	string m_directions;
-	TimeOfDay m_timeOfDay;
-	string m_additionalInfo;
+	//uint64_t m_applNo;
+	//string m_name;
+	//Strength m_strength = make_pair<uint32_t, UnitOfMeasurement>(0, UnitOfMeasurement::Milligram);
+	//string m_purpose;
+	//string m_directions;
+	//TimeOfDay m_timeOfDay;
+	//string m_additionalInfo;
 
-	//TODO: Create DrugInfo struct???
+	DrugInfo m_drugInfo;
 
 public:
-	Drug(uint64_t applNo,
+	/*Drug(uint64_t applNo,
 		string name,
 		Strength strength,
 		string purpose,
@@ -37,17 +36,18 @@ public:
 		m_directions = directions;
 		m_timeOfDay = timeOfDay;
 		m_additionalInfo = additionalInfo;
-	}
+	}*/
+	Drug(const DrugInfo info) : m_drugInfo(info) {}
 	//Drug()=default;
 	~Drug()=default;
 
-	uint64_t GetApplNo() const { return this->m_applNo; }
-	string GetName() const { return this->m_name; }
-	Strength GetStrength() const { return this->m_strength; }
-	string GetPurpose() const { return this->m_purpose; }
-	string GetDirections() const { return this->m_directions; }
-	TimeOfDay GetTimeOfDay() const { return this->m_timeOfDay; }
-	string GetAdditionalInfo() const { return this->m_additionalInfo; }
+	uint64_t GetApplNo() const { return this->m_drugInfo.applNo; }
+	std::string GetName() const { return this->m_drugInfo.name; }
+	Strength GetStrength() const { return this->m_drugInfo.strength; }
+	std::string GetPurpose() const { return this->m_drugInfo.purpose; }
+	std::string GetDirections() const { return this->m_drugInfo.directions; }
+	TimeOfDay GetTimeOfDay() const { return this->m_drugInfo.timeOfDay; }
+	std::string GetAdditionalInfo() const { return this->m_drugInfo.additionalInfo; }
 
-	friend ostream& operator<< (ostream& os, const Drug& pc);
+	friend std::ostream& operator<< (std::ostream& os, const Drug& pc);
 };

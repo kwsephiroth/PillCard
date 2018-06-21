@@ -13,7 +13,7 @@
 class PatientManager
 {
 private:
-	using PatientList = map<uint64_t, unique_ptr<Patient>>;
+	using PatientList = std::map<uint64_t, std::unique_ptr<Patient>>;
 	PatientList m_listOfPatients;
 
 public:
@@ -23,5 +23,6 @@ public:
 	const Patient& GetPatient(uint64_t patientId) const;
 
 	const Patient BLANKPATIENT = Patient();
+	//TODO: The patient list might need to be accessible from a GUI container. It might need to be a friend of this class.
 };
 

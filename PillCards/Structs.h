@@ -1,6 +1,7 @@
 #pragma once
 #include <stdint.h>
 #include <string>
+#include "Enums.h"
 
 struct Date
 {
@@ -30,8 +31,19 @@ struct PatientInfo
 	char sex;
 	Date dateOfBirth;
 	std::string address;
-	//uint64_t social;
 	SocialSecurityNumber social;
-	//std::string phone;
 	PhoneNumber phone;
+};
+
+struct DrugInfo
+{
+	using Strength = std::pair<uint32_t, UnitOfMeasurement>;
+
+	uint64_t applNo;
+	std::string name;
+	Strength strength;
+	std::string purpose;
+	std::string directions;
+	TimeOfDay timeOfDay;
+	std::string additionalInfo;
 };

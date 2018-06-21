@@ -2,7 +2,7 @@
 
 void PatientManager::AddNewPatient(Patient&& p)
 {
-	this->m_listOfPatients.emplace(p.GetId(), make_unique<Patient>(forward<Patient>(p)));
+	this->m_listOfPatients.emplace(p.GetId(), std::make_unique<Patient>(std::forward<Patient>(p)));
 	//TODO: Might need to make the PillCard object a shared pointer
 	//instead of a unique pointer so that the patient objection doesn't lose ownership
 }

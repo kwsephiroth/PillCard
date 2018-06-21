@@ -1,6 +1,6 @@
 #include "Patient.h"
 
-ostream& operator<< (ostream& os, const Patient& p)
+std::ostream& operator<< (std::ostream& os, const Patient& p)
 {
 	os << "Patient Name: " << p.m_patientInfo.name << "\n"
 		<< "Sex: " << p.m_patientInfo.sex << "\n"
