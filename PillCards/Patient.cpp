@@ -5,10 +5,10 @@ ostream& operator<< (ostream& os, const Patient& p)
 	os << "Patient Name: " << p.m_patientInfo.name << "\n"
 		<< "Sex: " << p.m_patientInfo.sex << "\n"
 		<< "Date Of Birth: " << (short)p.m_patientInfo.dateOfBirth.month << "/" << (short)p.m_patientInfo.dateOfBirth.day << "/" << p.m_patientInfo.dateOfBirth.year << "\n"
-		<< "Social: " << p.m_patientInfo.social << "\n"
+		<< "Social: " << p.m_patientInfo.social.area << "-" << p.m_patientInfo.social.group << "-" << p.m_patientInfo.social.serial << "\n"
 		<< "Identification: " << p.m_patientInfo.id << "\n"
 		<< "Address: " << p.m_patientInfo.address << "\n"
-		<< "Phone: " << p.m_patientInfo.phone << "\n\n";
+		<< "Phone: (" << p.m_patientInfo.phone.areaCode << ") " << p.m_patientInfo.phone.prefix << " - " << p.m_patientInfo.phone.lineNumber <<  "\n\n";
 		if(p.m_pillCard)
 			os << *p.m_pillCard;
 
@@ -30,9 +30,9 @@ Patient::Patient(Patient&& other)//Move constructor
 	other.m_patientInfo.name = "";
 	other.m_patientInfo.sex = '\0';
 	other.m_patientInfo.dateOfBirth.day = 0; other.m_patientInfo.dateOfBirth.month = 0; other.m_patientInfo.dateOfBirth.year = 0;
-	other.m_patientInfo.social = 0;
+	other.m_patientInfo.social = { 0,0,0 };
 	other.m_patientInfo.id = 0;
-	other.m_patientInfo.phone = "";
+	other.m_patientInfo.phone = { 0,0,0 };
 	other.m_patientInfo.address = "";
 }
 
@@ -53,9 +53,9 @@ Patient& Patient::operator=(Patient&& other)//Move assignment operator
 		other.m_patientInfo.name = "";
 		other.m_patientInfo.sex = '\0';
 		other.m_patientInfo.dateOfBirth.day = 0; other.m_patientInfo.dateOfBirth.month = 0; other.m_patientInfo.dateOfBirth.year = 0;
-		other.m_patientInfo.social = 0;
+		other.m_patientInfo.social = { 0,0,0 };
 		other.m_patientInfo.id = 0;
-		other.m_patientInfo.phone = "";
+		other.m_patientInfo.phone = { 0,0,0 };
 		other.m_patientInfo.address = "";
 	}
 	return *this;
