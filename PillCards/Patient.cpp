@@ -60,3 +60,11 @@ Patient& Patient::operator=(Patient&& other)//Move assignment operator
 	}
 	return *this;
 }
+
+bool Patient::IsBlank() const
+{
+	if (this->m_patientInfo.id == 0)
+		return true;
+	else
+		return false;
+}

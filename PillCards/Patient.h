@@ -44,7 +44,7 @@ public:
 	SocialSecurityNumber GetSocial() const { return this->m_patientInfo.social; }
 	PhoneNumber GetPhone() const { return this->m_patientInfo.phone; }
 	const PillCard& GetPillCard() const { return *this->m_pillCard; }//TODO: Handle case where the pill card pointer is null
-
+	bool IsBlank() const;
 	//static const Patient BLANK;
 
 	friend std::ostream& operator<< (std::ostream& os, const Patient& p);

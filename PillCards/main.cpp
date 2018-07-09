@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
 	std::cout << patient1 << std::endl;
 
 	auto& patient2 = pm.GetPatient(2);
-	//if(patient2.GetId() > 0)
+	if(!patient2.IsBlank())
 		std::cout << patient2 << std::endl;
 
 	system("pause");
