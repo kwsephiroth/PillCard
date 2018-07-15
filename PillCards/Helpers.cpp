@@ -37,7 +37,7 @@ std::string GetTimeOfDayString(const TimeOfDay tod)
 	switch (tod)
 	{
 	case TimeOfDay::Any:
-		todStr = "";
+		todStr = "Any";
 		break;
 	case TimeOfDay::Morning:
 		todStr = "Morning";
