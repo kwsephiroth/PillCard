@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
 		TimeOfDay::Any,
 		"This drug has no known volatile interactions with other drugs."};
 
-	Drug d( di );
+	Drug d( std::move(di) );
 	pc.AddDrug(std::move(d));
 
 	Patient p(pi, std::move(pc));

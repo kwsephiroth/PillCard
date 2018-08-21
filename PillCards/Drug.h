@@ -37,7 +37,7 @@ public:
 		m_timeOfDay = timeOfDay;
 		m_additionalInfo = additionalInfo;
 	}*/
-	Drug(const DrugInfo info) : m_drugInfo(info) {}
+	Drug(DrugInfo&& info) : m_drugInfo(std::move(info)) {}
 	//Drug()=default;
 	~Drug()=default;
 
